@@ -6,8 +6,13 @@
 package parking;
 
 import parking.controladores.ControladorDB;
+import parking.controladores.ControladorHome;
+import parking.modelos.Conductores;
 import parking.modelos.ModeloDB;
+import parking.modelos.Parqueadero;
+import parking.modelos.Vehiculos;
 import parking.vistas.VistaDB;
+import parking.vistas.VistaHome;
 
 /**
  *
@@ -20,10 +25,13 @@ public class Parking {
      */
     public static void main(String[] args) {
         
-        ModeloDB modelo = new ModeloDB();
-        VistaDB vista = new VistaDB();
-        vista.setVisible(true);
-        ControladorDB controlador = new ControladorDB(modelo,vista);
+        Conductores conductores=new Conductores();
+        Vehiculos  vehiculos=new Vehiculos();
+        Parqueadero parqueadero=new Parqueadero();
+        VistaHome vistaHome=new VistaHome();
+        vistaHome.setVisible(true);
+        
+        ControladorHome controladorHome=new ControladorHome(conductores,vehiculos,parqueadero,vistaHome);
         
     }
     

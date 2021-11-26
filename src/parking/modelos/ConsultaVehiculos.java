@@ -5,10 +5,82 @@
  */
 package parking.modelos;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 /**
  *
  * @author 505
  */
-public class ConsultaVehiculos {
+public class ConsultaVehiculos extends ModeloDB {
+    
+    PreparedStatement consultaSQL;
+    ResultSet resultadoSQL;
+    
+    public boolean registrarVehiculo (Vehiculos vehiculos){
+        Connection conexion=conectarDB();
+        String query="INSERT INTO vehiculos (placa,hora_ingreso,hora_salida,valor,id_parking)" 
+                + "VALUES (?,?,?,?,?)";
+        
+        try{
+            
+            consultaSQL=conexion.prepareStatement(query);
+            
+            consultaSQL.setString(1,vehiculos.getPlaca());
+            consultaSQL.setString(1,vehiculos.getHoraIngreso());
+            consultaSQL.setString(1,vehiculos.getHoraSalida());
+            consultaSQL.setInt(1,vehiculos.getValor());
+            consultaSQL.setString(1,vehiculos.getIdParking());
+            
+            int resultado=consultaSQL.executeUpdate();
+            
+            if(resultado>0){
+                return true;
+            }else{
+                return false;
+            }
+        
+        }catch(SQLException error){
+            System.out.println("Upsss.." + error);
+            return false;
+        }
+    
+    }
+    
+    public Vehiculos buscarVehiculo(String placa){
+        
+        Connection conexion=conectarDB();
+        String query="SELECT * from vehiculos where placa=?";
+        
+        try{
+            
+            consultaSQL=conexion.prepareStatement(query);
+            
+            consultaSQL.setString(1, placa);
+            
+            resultadoSQL=consultaSQL.executeQuery();
+            
+            Vehiculos vehiculos=new Vehiculos();
+            if(resultadoSQL.next()){
+                
+                vehiculos.setPlaca(resultadoSQL.getString("placa"));
+                vehiculos.setHoraIngreso(resultadoSQL.getString("hora_ingreso"));
+                vehiculos.setHoraSalida(resultadoSQL.getString("hora_salida"));
+                vehiculos.setValor(resultadoSQL.getInt("valor"));
+                vehiculos.setIdParking(resultadoSQL.getString("id_parking"));
+                
+                return vehiculos;
+                
+            }else{
+                return null;
+            }
+        }catch(SQLException error){
+            System.out.println("Upsss..." + error);
+            return null;
+        }
+    
+    }
     
 }
