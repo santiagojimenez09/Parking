@@ -52,6 +52,8 @@ public class ControladorHome implements ActionListener {
             VistaRegistro vistaRegistro=new VistaRegistro();
             vistaRegistro.setVisible(true);
             vistaHome.setVisible(false);
+            
+            ControladorRegistro controladorRegistro=new ControladorRegistro(conductores,vehiculos,parqueadero,vistaRegistro);
         }
     }
     

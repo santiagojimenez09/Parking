@@ -8,7 +8,7 @@ package parking.controladores;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import parking.modelos.ModeloDB;
-import parking.vistas.VistaDB;
+
 
 /**
  *
@@ -17,14 +17,14 @@ import parking.vistas.VistaDB;
 public class ControladorDB implements ActionListener {
     
     ModeloDB modelo = new ModeloDB();
-    VistaDB vista = new VistaDB();
     
     
-    public ControladorDB(ModeloDB modelo,VistaDB vista){
+    
+    public ControladorDB(ModeloDB modelo){
     
         this.modelo=modelo;
-        this.vista=vista;
-        vista.boton.addActionListener(this);
+        
+        
     
     }
 

@@ -29,7 +29,7 @@ public class ModeloDB {
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             conexion=DriverManager.getConnection(servidor,usuario,password);
-            System.out.println("Exito conectadose a la BD");
+            
             return conexion;
         
         }catch(Exception error){

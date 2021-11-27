@@ -57,7 +57,7 @@ public class ControladorRegistro implements ActionListener {
         conductores.setTelMovil(vistaRegistro.cajacelular.getText());
         conductores.setTelFijo(vistaRegistro.cajafijo.getText());
         
-        Date entrada=new Date();
+        java.util.Date entrada=new java.util.Date();
         SimpleDateFormat formato=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String horaIngreso=formato.format(entrada);
         vehiculos.setHoraIngreso(horaIngreso);

@@ -11,7 +11,6 @@ import parking.modelos.Conductores;
 import parking.modelos.ModeloDB;
 import parking.modelos.Parqueadero;
 import parking.modelos.Vehiculos;
-import parking.vistas.VistaDB;
 import parking.vistas.VistaHome;
 
 /**

@@ -29,10 +29,10 @@ public class ConsultaVehiculos extends ModeloDB {
             consultaSQL=conexion.prepareStatement(query);
             
             consultaSQL.setString(1,vehiculos.getPlaca());
-            consultaSQL.setString(1,vehiculos.getHoraIngreso());
-            consultaSQL.setString(1,vehiculos.getHoraSalida());
-            consultaSQL.setInt(1,vehiculos.getValor());
-            consultaSQL.setString(1,vehiculos.getIdParking());
+            consultaSQL.setString(2,vehiculos.getHoraIngreso());
+            consultaSQL.setString(3,vehiculos.getHoraSalida());
+            consultaSQL.setInt(4,vehiculos.getValor());
+            consultaSQL.setString(5,vehiculos.getIdParking());
             
             int resultado=consultaSQL.executeUpdate();
             

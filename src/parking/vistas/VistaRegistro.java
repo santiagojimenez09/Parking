@@ -79,6 +79,11 @@ public class VistaRegistro extends javax.swing.JFrame {
 
         botonregresar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         botonregresar.setText("REGRESAR");
+        botonregresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonregresarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -173,6 +178,13 @@ public class VistaRegistro extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void botonregresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonregresarActionPerformed
+        VistaHome vistaHome=new VistaHome();
+        VistaRegistro vistaRegistro=new VistaRegistro();
+        vistaHome.setVisible(true);
+        vistaRegistro.setVisible(false);
+    }//GEN-LAST:event_botonregresarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -227,4 +239,8 @@ public class VistaRegistro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
+
+    private void setVisable(boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
